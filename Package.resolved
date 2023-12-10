@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "swift-extras",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stansmida/swift-extras.git",
+      "state" : {
+        "revision" : "78d074c4c5f2b7571630b1ec35a8bb3484ff28b4",
+        "version" : "0.6.0"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "6ad4ea24b01559dde0773e3d091f1b9e36175036",
+        "version" : "509.0.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax-extras",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/stansmida/swift-syntax-extras.git",
+      "state" : {
+        "revision" : "2a7ee78776f1702b8c86464d0e1d1a5fdcfbf260",
+        "version" : "0.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}
