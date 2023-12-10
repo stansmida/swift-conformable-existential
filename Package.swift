@@ -5,17 +5,17 @@ import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
-    name: "ConformableExistential",
+    name: "swift-conformable-existential",
     platforms: [.macOS(.v13), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "ConformableExistential",
-            targets: ["ConformableExistential"]
+            name: "SwiftConformableExistential",
+            targets: ["SwiftConformableExistential"]
         ),
         .executable(
-            name: "ConformableExistentialClient",
-            targets: ["ConformableExistentialClient"]
+            name: "SwiftConformableExistentialClient",
+            targets: ["SwiftConformableExistentialClient"]
         ),
     ],
     dependencies: [
@@ -25,9 +25,21 @@ let package = Package(
         .package(url: "https://github.com/stansmida/swift-syntax-extras.git", exact: "0.4.1"),
     ],
     targets: [
+
+        // Library that exposes a macro as part of its API, which is used in client programs.
+        .target(
+            name: "SwiftConformableExistential",
+            dependencies: [
+                "SwiftConformableExistentialMacros",
+                .product(name: "SwiftExtras", package: "swift-extras"),
+                .product(name: "SwiftSyntaxExtras", package: "swift-syntax-extras"),
+            ],
+            swiftSettings: [.enableExperimentalFeature("AccessLevelOnImport")]
+        ),
+
         // Macro implementation that performs the source transformation of a macro.
         .macro(
-            name: "ConformableExistentialMacros",
+            name: "SwiftConformableExistentialMacros",
             dependencies: [
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
                 .product(name: "SwiftSyntaxExtras", package: "swift-syntax-extras"),
@@ -35,31 +47,21 @@ let package = Package(
             ]
         ),
 
-        // Library that exposes a macro as part of its API, which is used in client programs.
-        .target(
-            name: "ConformableExistential",
-            dependencies: [
-                "ConformableExistentialMacros",
-                .product(name: "SwiftExtras", package: "swift-extras"),
-            ],
-            swiftSettings: [.enableExperimentalFeature("AccessLevelOnImport")]
-        ),
-
         // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "ConformableExistentialClient", dependencies: ["ConformableExistential"]),
+        .executableTarget(name: "SwiftConformableExistentialClient", dependencies: ["SwiftConformableExistential"]),
 
         .testTarget(
-            name: "ConformableExistentialMacrosTests",
+            name: "SwiftConformableExistentialMacrosTests",
             dependencies: [
-                "ConformableExistentialMacros",
+                "SwiftConformableExistentialMacros",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
             ]
         ),
 
         .testTarget(
-            name: "ConformableExistentialTests",
+            name: "SwiftConformableExistentialTests",
             dependencies: [
-                "ConformableExistential",
+                "SwiftConformableExistential",
             ]
         ),
     ]

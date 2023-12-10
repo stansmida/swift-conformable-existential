@@ -1,4 +1,4 @@
-import ConformableExistential
+import SwiftConformableExistential
 import Foundation
 
 @SimpleCodingProviding(expectedTypes: Beer.self, Espresso.self)

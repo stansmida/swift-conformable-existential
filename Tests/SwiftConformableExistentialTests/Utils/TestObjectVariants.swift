@@ -1,4 +1,4 @@
-import ConformableExistential
+import SwiftConformableExistential
 
 // MARK: - Generator interfaces
 

@@ -3,14 +3,14 @@ import SwiftSyntaxMacrosTestSupport
 import XCTest
 
 // Macro implementations build for the host, so the corresponding module is not available when cross-compiling. Cross-compiled tests may still make use of the macro itself in end-to-end tests.
-#if canImport(ConformableExistentialMacros)
-import ConformableExistentialMacros
+#if canImport(SwiftConformableExistentialMacros)
+import SwiftConformableExistentialMacros
 #endif
 
 final class ConformableExistentialMacrosTests: XCTestCase {
 
     func testEquatableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @EquatableExistential
@@ -151,7 +151,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testHashableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @HashableExistential
@@ -352,7 +352,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testDecodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @DecodableExistential
@@ -537,7 +537,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testEncodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @EncodableExistential
@@ -702,7 +702,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testCodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @CodableExistential
@@ -943,7 +943,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testEquatableDecodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @EquatableDecodableExistential
@@ -1160,7 +1160,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testEquatableEncodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @EquatableEncodableExistential
@@ -1357,7 +1357,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testEquatableCodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @EquatableCodableExistential
@@ -1630,7 +1630,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testHashableEncodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @HashableEncodableExistential
@@ -1887,7 +1887,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testHashableDecodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @HashableDecodableExistential
@@ -2164,7 +2164,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
     }
 
     func testHashableCodableExistential() throws {
-        #if canImport(ConformableExistentialMacros)
+        #if canImport(SwiftConformableExistentialMacros)
         assertMacroExpansion(
             """
             @HashableCodableExistential

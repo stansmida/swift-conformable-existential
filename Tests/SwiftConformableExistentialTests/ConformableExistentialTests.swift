@@ -1,4 +1,4 @@
-import ConformableExistential
+import SwiftConformableExistential
 import XCTest
 
 final class ConformableExistentialTests: XCTestCase {

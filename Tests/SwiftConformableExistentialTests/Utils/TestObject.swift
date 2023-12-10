@@ -1,4 +1,4 @@
-import ConformableExistential
+import SwiftConformableExistential
 
 @SimpleCodingProviding(expectedTypes: Water.self, Beer.self, Espresso.self)
 // Spawn every possible conformance and variant permutation.
