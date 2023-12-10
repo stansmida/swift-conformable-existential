@@ -50,7 +50,7 @@ final class SimpleCodingTests: XCTestCase {
                     guard let type = expectedTypes[typeName] else {
                         throw Error.unexpectedTypeKey(typeName)
                     }
-                    return try type.init(from: decoder)
+                    return try type.init(from: decoder) as any Animal
                 }
             }
             """,
