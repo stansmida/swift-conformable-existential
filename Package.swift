@@ -21,8 +21,8 @@ let package = Package(
     dependencies: [
         // Depend on the Swift 5.9 release of SwiftSyntax
         .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0"),
-        .package(url: "https://github.com/stansmida/swift-extras.git", exact: "0.6.0"),
-        .package(url: "https://github.com/stansmida/swift-syntax-extras.git", exact: "0.4.1"),
+        .package(url: "https://github.com/stansmida/swift-extras.git", from: "0.7.4"),
+        .package(url: "https://github.com/stansmida/swift-syntax-extras.git", from: "0.4.1"),
     ],
     targets: [
 
