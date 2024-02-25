@@ -25,6 +25,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct EquatableDrinkable: _ConformableExistentialEquatableSupport {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -39,6 +42,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct EquatableMutableDrinkable: _ConformableExistentialEquatableSupport {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -53,6 +59,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct EquatableOptionalDrinkable: _ConformableExistentialEquatableSupport {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -69,6 +78,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct EquatableSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -83,6 +95,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct EquatableMutableOptionalDrinkable: _ConformableExistentialEquatableSupport {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -99,6 +114,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct EquatableMutableSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -115,6 +133,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct EquatableOptionalSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -131,6 +152,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct EquatableMutableOptionalSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -166,6 +190,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct HashableDrinkable: _ConformableExistentialEquatableSupport, Hashable {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -184,6 +211,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct HashableMutableDrinkable: _ConformableExistentialEquatableSupport, Hashable {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -202,6 +232,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct HashableOptionalDrinkable: _ConformableExistentialEquatableSupport, Hashable {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -226,6 +259,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct HashableSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport, Hashable where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -247,6 +283,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
 
             @propertyWrapper
             struct HashableMutableOptionalDrinkable: _ConformableExistentialEquatableSupport, Hashable {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -271,6 +310,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct HashableMutableSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport, Hashable where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -294,6 +336,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct HashableOptionalSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport, Hashable where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -321,6 +366,9 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
             struct HashableMutableOptionalSequenceOfDrinkable<T>: _ConformableExistentialEquatableSequenceSupport, Hashable where T: Sequence<any Drinkable> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -366,7 +414,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct DecodableDrinkable<Coding>: Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct DecodableDrinkable<TypeCoding>: Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -375,12 +426,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct DecodableMutableDrinkable<Coding>: Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct DecodableMutableDrinkable<TypeCoding>: Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -389,12 +444,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct DecodableOptionalDrinkable<Coding>: Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct DecodableOptionalDrinkable<TypeCoding>: Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -406,13 +465,17 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
 
             @propertyWrapper
-            struct DecodableRangeReplaceableCollectionOfDrinkable<T, Coding>: Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct DecodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -427,7 +490,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(DecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(DecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -435,7 +498,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct DecodableMutableOptionalDrinkable<Coding>: Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct DecodableMutableOptionalDrinkable<TypeCoding>: Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -447,13 +513,17 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
 
             @propertyWrapper
-            struct DecodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct DecodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -468,7 +538,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(DecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(DecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -476,7 +546,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct DecodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct DecodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -489,21 +562,24 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(DecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(DecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
 
             @propertyWrapper
-            struct DecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct DecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -516,15 +592,15 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(DecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(DecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
@@ -551,7 +627,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EncodableDrinkable<Coding>: Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct EncodableDrinkable<TypeCoding>: Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -560,12 +639,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EncodableMutableDrinkable<Coding>: Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct EncodableMutableDrinkable<TypeCoding>: Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -574,12 +657,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EncodableOptionalDrinkable<Coding>: Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct EncodableOptionalDrinkable<TypeCoding>: Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -589,7 +676,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -598,7 +686,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EncodableSequenceOfDrinkable<T, Coding>: Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EncodableSequenceOfDrinkable<T, TypeCoding>: Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -608,14 +699,19 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct EncodableMutableOptionalDrinkable<Coding>: Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct EncodableMutableOptionalDrinkable<TypeCoding>: Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -625,7 +721,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -634,7 +731,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EncodableMutableSequenceOfDrinkable<T, Coding>: Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EncodableMutableSequenceOfDrinkable<T, TypeCoding>: Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -644,14 +744,19 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct EncodableOptionalSequenceOfDrinkable<T, Coding>: Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EncodableOptionalSequenceOfDrinkable<T, TypeCoding>: Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -662,9 +767,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -673,7 +780,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EncodableMutableOptionalSequenceOfDrinkable<T, Coding>: Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EncodableMutableOptionalSequenceOfDrinkable<T, TypeCoding>: Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -684,9 +794,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -716,7 +828,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct CodableDrinkable<Coding>: Codable where Coding: CodingProvider<any Drinkable> {
+            struct CodableDrinkable<TypeCoding>: Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -725,15 +840,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct CodableMutableDrinkable<Coding>: Codable where Coding: CodingProvider<any Drinkable> {
+            struct CodableMutableDrinkable<TypeCoding>: Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -742,15 +862,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     self
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct CodableOptionalDrinkable<Coding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct CodableOptionalDrinkable<TypeCoding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -762,12 +887,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -776,7 +903,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct CodableRangeReplaceableCollectionOfDrinkable<T, Coding>: Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct CodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -791,21 +921,26 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(CodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(CodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            CodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                CodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct CodableMutableOptionalDrinkable<Coding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct CodableMutableOptionalDrinkable<TypeCoding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -817,12 +952,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -831,7 +968,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct CodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct CodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -846,21 +986,26 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(CodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(CodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            CodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                CodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct CodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct CodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -873,23 +1018,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(CodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(CodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                CodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    CodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -898,7 +1045,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct CodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct CodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -911,23 +1061,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(CodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(CodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                CodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    CodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -957,7 +1109,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EquatableDecodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -969,12 +1124,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableDecodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -986,12 +1145,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableDecodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1006,7 +1169,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
@@ -1014,7 +1178,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableDecodableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1032,7 +1199,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(EquatableDecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(EquatableDecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -1040,7 +1207,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EquatableDecodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1055,7 +1225,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
@@ -1063,7 +1234,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableDecodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1081,7 +1255,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(EquatableDecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(EquatableDecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -1091,7 +1265,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableDecodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1107,15 +1284,15 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(EquatableDecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(EquatableDecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
@@ -1123,7 +1300,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableDecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct EquatableDecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1139,15 +1319,15 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(EquatableDecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(EquatableDecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
@@ -1174,7 +1354,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EquatableEncodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1186,12 +1369,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableEncodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1203,12 +1390,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableEncodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1221,7 +1412,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1232,7 +1424,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableEncodableSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1245,14 +1440,19 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EquatableEncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EquatableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct EquatableEncodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1265,7 +1465,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1276,7 +1477,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableEncodableMutableSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableMutableSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1289,16 +1493,21 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EquatableEncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EquatableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableEncodableOptionalSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableOptionalSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1312,9 +1521,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EquatableEncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EquatableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1325,7 +1536,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableEncodableMutableOptionalSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct EquatableEncodableMutableOptionalSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1339,9 +1553,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EquatableEncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EquatableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1371,7 +1587,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct EquatableCodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Codable where Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1383,15 +1602,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableCodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Codable where Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1403,15 +1627,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     wrappedValue
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct EquatableCodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1426,12 +1655,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1442,7 +1673,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableCodableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1460,21 +1694,26 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(EquatableCodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(EquatableCodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EquatableCodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EquatableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct EquatableCodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1489,12 +1728,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1505,7 +1746,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableCodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1523,23 +1767,28 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(EquatableCodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(EquatableCodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            EquatableCodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                EquatableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableCodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1555,23 +1804,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(EquatableCodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(EquatableCodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EquatableCodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EquatableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1582,7 +1833,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct EquatableCodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct EquatableCodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1598,23 +1852,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(EquatableCodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(EquatableCodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                EquatableCodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    EquatableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1644,7 +1900,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct HashableEncodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1660,12 +1919,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableEncodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Encodable where Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Encodable where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1681,12 +1944,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableEncodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1707,7 +1974,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1718,7 +1986,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableEncodableSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1738,14 +2009,19 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            HashableEncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                HashableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct HashableEncodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1766,7 +2042,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1777,7 +2054,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableEncodableMutableSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableMutableSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1797,16 +2077,21 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            HashableEncodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                HashableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableEncodableOptionalSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableOptionalSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1831,9 +2116,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                HashableEncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    HashableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1844,7 +2131,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableEncodableMutableOptionalSequenceOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, Coding: EncodingProvider<any Drinkable> {
+            struct HashableEncodableMutableOptionalSequenceOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Encodable, _OptionalExistentialEncodingSupport where T: Sequence<any Drinkable>, TypeCoding: MetaEncoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1869,9 +2159,11 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                HashableEncodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    HashableEncodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -1901,7 +2193,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct HashableDecodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1917,12 +2212,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableDecodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Decodable where Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Decodable where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1938,12 +2237,16 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableDecodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1966,7 +2269,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
@@ -1974,7 +2278,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableDecodableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -1999,7 +2306,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(HashableDecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(HashableDecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -2007,7 +2314,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct HashableDecodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2030,7 +2340,8 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
             }
@@ -2038,7 +2349,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableDecodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2063,7 +2377,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(HashableDecodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(HashableDecodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
@@ -2073,7 +2387,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableDecodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2100,15 +2417,15 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(HashableDecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(HashableDecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
@@ -2116,7 +2433,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableDecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: DecodingProvider<any Drinkable> {
+            struct HashableDecodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Decodable, _OptionalExistentialDecodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaDecoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2143,15 +2463,15 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(HashableDecodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(HashableDecodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
             }
@@ -2178,7 +2498,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             }
 
             @propertyWrapper
-            struct HashableCodableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Codable where Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2194,15 +2517,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableCodableMutableDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Codable where Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableMutableDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Codable where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: any Drinkable) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: any Drinkable) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2218,15 +2546,20 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     hasher.combine(wrappedValue)
                 }
                 init(from decoder: Decoder) throws {
-                    wrappedValue = try Coding.decode(from: decoder)
+                    let type = try TypeCoding.decode(from: decoder)
+                    wrappedValue = try type.init(from: decoder)
                 }
                 func encode(to encoder: Encoder) throws {
-                    try Coding.encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                 }
             }
 
             @propertyWrapper
-            struct HashableCodableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2249,12 +2582,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -2265,7 +2600,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableCodableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2290,21 +2628,26 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(HashableCodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(HashableCodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            HashableCodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                HashableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             @propertyWrapper
-            struct HashableCodableMutableOptionalDrinkable<Coding>: _ConformableExistentialEquatableSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableMutableOptionalDrinkable<TypeCoding>: _ConformableExistentialEquatableSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: (any Drinkable)?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: (any Drinkable)?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2327,12 +2670,14 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                     if (try? decoder.singleValueContainer().decodeNil()) == true {
                         wrappedValue = nil
                     } else {
-                        wrappedValue = try Coding.decode(from: decoder)
+                        let type = try TypeCoding.decode(from: decoder)
+                        wrappedValue = try type.init(from: decoder)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
-                        try Coding.encode(wrappedValue, to: encoder)
+                        try wrappedValue.encode(to: encoder)
+                        try TypeCoding.encode(type(of: wrappedValue), to: encoder)
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -2343,7 +2688,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableCodableMutableRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableMutableRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2368,23 +2716,28 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         array.reserveCapacity(count)
                     }
                     while !container.isAtEnd {
-                        let element = try container.decode(HashableCodableDrinkable<Coding>.self).wrappedValue
+                        let element = try container.decode(HashableCodableDrinkable<TypeCoding>.self).wrappedValue
                         array.append(element)
                     }
                     wrappedValue = T(array)
                 }
                 func encode(to encoder: Encoder) throws {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map {
-                            HashableCodableDrinkable<Coding>(wrappedValue: $0)
-                        })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({
+                                HashableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                            })
+                    )
                 }
             }
 
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableCodableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2411,23 +2764,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(HashableCodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(HashableCodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                HashableCodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    HashableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()
@@ -2438,7 +2793,10 @@ final class ConformableExistentialMacrosTests: XCTestCase {
             /// - Important: `T` must be an ordered sequence in order to correctly compare for equality.
             /// See the documentation why and how to use your custom unordered sequences.
             @propertyWrapper
-            struct HashableCodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, Coding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, Coding: CodingProvider<any Drinkable> {
+            struct HashableCodableMutableOptionalRangeReplaceableCollectionOfDrinkable<T, TypeCoding>: _ConformableExistentialEquatableSequenceSupport, Hashable, Codable, _OptionalExistentialDecodingSupport, _OptionalExistentialEncodingSupport where T: RangeReplaceableCollection<any Drinkable>, TypeCoding: MetaCoding<any Drinkable.Type> {
+                init(_ wrappedValue: T?) {
+                    self.wrappedValue = wrappedValue
+                }
                 init(wrappedValue: T?) {
                     self.wrappedValue = wrappedValue
                 }
@@ -2465,23 +2823,25 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         var container = try decoder.unkeyedContainer()
-                    var array = Array<any Drinkable>()
-                    if let count = container.count {
-                        array.reserveCapacity(count)
-                    }
-                    while !container.isAtEnd {
-                        let element = try container.decode(HashableCodableDrinkable<Coding>.self).wrappedValue
-                        array.append(element)
-                    }
-                    wrappedValue = T(array)
+                        var array = Array<any Drinkable>()
+                        if let count = container.count {
+                            array.reserveCapacity(count)
+                        }
+                        while !container.isAtEnd {
+                            let element = try container.decode(HashableCodableDrinkable<TypeCoding>.self).wrappedValue
+                            array.append(element)
+                        }
+                        wrappedValue = T(array)
                     }
                 }
                 func encode(to encoder: Encoder) throws {
                     if let wrappedValue {
                         var container = encoder.unkeyedContainer()
-                        try container.encode(contentsOf: wrappedValue.lazy.map {
-                                HashableCodableDrinkable<Coding>(wrappedValue: $0)
-                            })
+                        try container.encode(
+                            contentsOf: wrappedValue.lazy.map({
+                                    HashableCodableDrinkable<TypeCoding>(wrappedValue: $0)
+                                })
+                        )
                     } else {
                         var container = encoder.singleValueContainer()
                         try container.encodeNil()

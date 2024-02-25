@@ -281,7 +281,7 @@ private struct ExpansionBuilder {
             parameters.append(sequenceGenericParameter)
         }
         if configuration.conformance.codability != nil {
-            parameters.append(codingProviderGenericParameter)
+            parameters.append(typeCodingGenericParameter)
         }
         if parameters.isEmpty {
             return ""
@@ -292,7 +292,7 @@ private struct ExpansionBuilder {
 
     private let sequenceGenericParameter = "T"
 
-    private let codingProviderGenericParameter = "Coding"
+    private let typeCodingGenericParameter = "TypeCoding"
 
     private var inheritanceClause: String {
         var conformances = [String]()
@@ -335,7 +335,7 @@ private struct ExpansionBuilder {
             case .encodable: "Encoding"
             case .codable: "Coding"
             }
-            constraints.append("\(codingProviderGenericParameter): \(coding)Provider<any \(configuration.protocolName)>")
+            constraints.append("\(typeCodingGenericParameter): Meta\(coding)<any \(configuration.protocolName).Type>")
         }
         if constraints.isEmpty {
             return ""
@@ -347,6 +347,9 @@ private struct ExpansionBuilder {
     @MemberBlockItemListBuilder
     private var members: MemberBlockItemListBuilder.FinalResult {
         """
+        \(raw: memberAccessModifierWithTrailingSpace)init(_ wrappedValue: \(raw: wrappedType)) {
+            self.wrappedValue = wrappedValue
+        }
         \(raw: memberAccessModifierWithTrailingSpace)init(wrappedValue: \(raw: wrappedType)) {
             self.wrappedValue = wrappedValue
         }
@@ -405,8 +408,7 @@ private struct ExpansionBuilder {
         configuration.variant.contains(.mutable) ? "var" : "let"
     }
 
-    @CodeBlockItemListBuilder
-    private var hashIntoHasherBody: CodeBlockItemListBuilder.FinalResult {
+    private var hashIntoHasherBody: CodeBlockItemListSyntax {
         switch (configuration.variant.contains(.optional), configuration.variant.contains(.sequence)) {
             case (false, false):
                 """
@@ -445,57 +447,62 @@ private struct ExpansionBuilder {
         }
     }
 
-    @CodeBlockItemListBuilder
-    private var initFromDecoderBody: CodeBlockItemListBuilder.FinalResult {
-        let nonNilDecoding = if configuration.variant.contains(.sequence) {
+    private var initFromDecoderBody: CodeBlockItemListSyntax {
+        let nonNilDecoding: CodeBlockItemListSyntax = if configuration.variant.contains(.sequence) {
             """
             var container = try decoder.unkeyedContainer()
-            var array = Array<any \(configuration.protocolName)>()
+            var array = Array<any \(raw: configuration.protocolName)>()
             if let count = container.count {
                 array.reserveCapacity(count)
             }
             while !container.isAtEnd {
-                let element = try container.decode(\(conformanceComponent)\(configuration.protocolName)<\(codingProviderGenericParameter)>.self).wrappedValue
+                let element = try container.decode(\(raw: conformanceComponent)\(raw: configuration.protocolName)<\(raw: typeCodingGenericParameter)>.self).wrappedValue
                 array.append(element)
             }
-            wrappedValue = \(sequenceGenericParameter)(array)
+            wrappedValue = \(raw: sequenceGenericParameter)(array)
             """
         } else {
-            "wrappedValue = try \(codingProviderGenericParameter).decode(from: decoder)"
+            """
+            let type = try \(raw: typeCodingGenericParameter).decode(from: decoder)
+            wrappedValue = try type.init(from: decoder)
+            """
         }
         if configuration.variant.contains(.optional) {
             // Handles decoding an uncontained wrapper from "null" data.
             // Contained nulls are handled via `KeyedDecodingContainer` extension
             // that takes `_OptionalExistentialDecodingSupport` and decodes
             // conditionally (`decodeIfPresent`).
-            """
+            return """
             if (try? decoder.singleValueContainer().decodeNil()) == true {
                 wrappedValue = nil
             } else {
-                \(raw: nonNilDecoding)
+                \(nonNilDecoding)
             }
             """
         } else {
-            "\(raw: nonNilDecoding)"
+            return nonNilDecoding
         }
     }
 
-    @CodeBlockItemListBuilder
-    private var encodeToEncoderBody: CodeBlockItemListBuilder.FinalResult {
+    private var encodeToEncoderBody: CodeBlockItemListSyntax {
         switch (configuration.variant.contains(.optional), configuration.variant.contains(.sequence)) {
             case (false, false):
                 """
-                try \(raw: codingProviderGenericParameter).encode(wrappedValue, to: encoder)
+                try wrappedValue.encode(to: encoder)
+                try \(raw: typeCodingGenericParameter).encode(type(of: wrappedValue), to: encoder)
                 """
             case (false, true):
                 """
                 var container = encoder.unkeyedContainer()
-                try container.encode(contentsOf: wrappedValue.lazy.map { \(raw: conformanceComponent)\(raw: configuration.protocolName)<\(raw: codingProviderGenericParameter)>(wrappedValue: $0) })
+                try container.encode(
+                    contentsOf: wrappedValue.lazy.map({ \(raw: conformanceComponent)\(raw: configuration.protocolName)<\(raw: typeCodingGenericParameter)>(wrappedValue: $0) })
+                )
                 """
             case (true, false):
                 """
                 if let wrappedValue {
-                    try \(raw: codingProviderGenericParameter).encode(wrappedValue, to: encoder)
+                    try wrappedValue.encode(to: encoder)
+                    try \(raw: typeCodingGenericParameter).encode(type(of: wrappedValue), to: encoder)
                 } else {
                     var container = encoder.singleValueContainer()
                     try container.encodeNil()
@@ -505,7 +512,9 @@ private struct ExpansionBuilder {
                 """
                 if let wrappedValue {
                     var container = encoder.unkeyedContainer()
-                    try container.encode(contentsOf: wrappedValue.lazy.map { \(raw: conformanceComponent)\(raw: configuration.protocolName)<\(raw: codingProviderGenericParameter)>(wrappedValue: $0) })
+                    try container.encode(
+                        contentsOf: wrappedValue.lazy.map({ \(raw: conformanceComponent)\(raw: configuration.protocolName)<\(raw: typeCodingGenericParameter)>(wrappedValue: $0) })
+                    )
                 } else {
                     var container = encoder.singleValueContainer()
                     try container.encodeNil()

@@ -1,21 +1,13 @@
-/// A private "marker" protocol that equatable variants of ConformableExistential
-/// macro expansion types conform to.
-/// It is used to compare different type of wrappers for value equality. For example it allows
-/// `EquatableAnimal(wrappedValue: Cow()) == EquatableOptionalAnimal(wrappedValue: Cow())` and
-/// results to `true`.
-/// - Important: This type is part of the internal implementation of `ConformableExistential` package.
+/// - Important: This type is part of the internal implementation of ``SwiftConformableExistential`` module.
 /// It is public due to technical requirements but is not intended for direct use by client code.
+/// See more in <doc:DetailedDesign#Equality>.
 public protocol _ConformableExistentialEquatableSupport: Equatable {
     var _equatable: (any Equatable)? { get }
 }
 
-/// A private marker protocol that equatable and sequence variants of ConformableExistential
-/// macro expansion types conform to.
-/// It is used to compare different type of wrappers for value equality. For example it allows
-/// `EquatableSequenceOfAnimal(wrappedValue: [Cow()]) == EquatableMutableSequenceOfAnimal(wrappedValue: [Cow()])`
-/// and results to `true`.
-/// - Important: This type is part of the internal implementation of `ConformableExistential` package.
+/// - Important: This type is part of the internal implementation of ``SwiftConformableExistential`` module.
 /// It is public due to technical requirements but is not intended for direct use by client code.
+/// See more in <doc:DetailedDesign#Equality>.
 public protocol _ConformableExistentialEquatableSequenceSupport: Equatable {
     associatedtype Equatables: Sequence
     var _sequenceOfEquatables: Equatables? { get }
@@ -56,16 +48,14 @@ public extension _ConformableExistentialEquatableSequenceSupport {
         !(lhs == rhs)
     }
 
-    /// - Important: Two `_ConformableExistentialEquatableSequenceSupport`s are evaluated as equal
-    /// if they have same sequence type and the sequences contain the same elements in the same order.
-    /// The reason for this limitation is that we cannot directly compare concrete sequence types with
-    /// their equal-to implementations, since they are not Equatable (their elements are existentials).
-    /// In 99.999...% these sequences won't be unordered though. Typically, unordered sequences use `Hashable`
-    /// elements to be formed, so unless someone comes with custom implementation of unordered sequence type
-    /// that takes existentials, it will be fine. For the unordered sequences with existentail elements,
-    /// you must extend expansion wrappers for sequences and provide your own `Equatable` implementation.
+    /// - Important: Two wrappers over a collection of existentials are evaluated as equal if they have
+    /// the same sequence type and if the sequences contain equal elements at respective index (have same order).
+    /// See more in <doc:DetailedDesign#Equality-of-collections>.
     @usableFromInline
-    static internal func areSequencesOfEquatablesEqual<LHS: _ConformableExistentialEquatableSequenceSupport, RHS: _ConformableExistentialEquatableSequenceSupport>(lhs: LHS, rhs: RHS) -> Bool {
+    static internal func areSequencesOfEquatablesEqual<LHS: _ConformableExistentialEquatableSequenceSupport, RHS: _ConformableExistentialEquatableSequenceSupport>(
+        lhs: LHS,
+        rhs: RHS
+    ) -> Bool {
         guard LHS.Equatables.self == RHS.Equatables.self else {
             return false
         }
@@ -75,7 +65,11 @@ public extension _ConformableExistentialEquatableSequenceSupport {
             while true {
                 switch (lhsIterator.next(), rhsIterator.next()) {
                     case (.some(let lhsElement), .some(let rhsElement)):
-                        if !(lhsElement as! any Equatable).isEqual(to: (rhsElement as! any Equatable)) {
+                        guard
+                            let lhsEquatable = lhsElement as? any Equatable,
+                            let rhsEquatable = rhsElement as? any Equatable,
+                            lhsEquatable.isEqual(to: rhsEquatable)
+                        else {
                             return false
                         }
                     case (.some, .none), (.none, .some):

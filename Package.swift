@@ -1,5 +1,4 @@
 // swift-tools-version: 5.9
-// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 import CompilerPluginSupport
@@ -8,17 +7,13 @@ let package = Package(
     name: "swift-conformable-existential",
     platforms: [.macOS(.v13), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13)],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SwiftConformableExistential",
             targets: ["SwiftConformableExistential"]
         ),
-        .executable(
-            name: "SwiftConformableExistentialClient",
-            targets: ["SwiftConformableExistentialClient"]
-        ),
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
         // Depend on the Swift 5.9 release of SwiftSyntax
         .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0"),
         .package(url: "https://github.com/stansmida/swift-extras.git", from: "0.7.4"),
@@ -46,9 +41,6 @@ let package = Package(
                 .product(name: "SwiftSyntaxMacros", package: "swift-syntax"),
             ]
         ),
-
-        // A client of the library, which is able to use the macro in its own code.
-        .executableTarget(name: "SwiftConformableExistentialClient", dependencies: ["SwiftConformableExistential"]),
 
         .testTarget(
             name: "SwiftConformableExistentialMacrosTests",

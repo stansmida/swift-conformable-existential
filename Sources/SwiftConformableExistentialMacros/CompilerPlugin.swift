@@ -5,7 +5,6 @@ import SwiftSyntaxMacros
 struct ConformableExistentialPlugin: CompilerPlugin {
 
     let providingMacros: [Macro.Type] = [
-
         EquatableExistential.self,
         HashableExistential.self,
         DecodableExistential.self,
@@ -17,7 +16,5 @@ struct ConformableExistentialPlugin: CompilerPlugin {
         HashableDecodableExistential.self,
         HashableEncodableExistential.self,
         HashableCodableExistential.self,
-
-        SimpleCoding.self,
     ]
 }

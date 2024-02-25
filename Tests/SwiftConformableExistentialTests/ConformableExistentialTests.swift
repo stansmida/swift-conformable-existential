@@ -108,7 +108,7 @@ final class ConformableExistentialTests: XCTestCase {
     // MARK: Codable Tests
 
     func testDecodable_whenNotNilDrinkableNotContained() throws {
-        let decodables = decodablesOfDrinkable(optionalsOnly: false, with: DrinkableSimpleCoding.self)
+        let decodables = decodablesOfDrinkable(optionalsOnly: false, with: DrinkableTypeCoding.self)
         var c = 0
         for decodableType in decodables {
             let decoded = try decoder.decode(decodableType, from: .smallBeer)
@@ -129,7 +129,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testDecodable_whenNotNilDrinkablesNotContained() throws {
-        let decodables = decodablesOfDrinkables(of: [any Drinkable].self, optionalsOnly: false, with: DrinkableSimpleCoding.self)
+        let decodables = decodablesOfDrinkables(of: [any Drinkable].self, optionalsOnly: false, with: DrinkableTypeCoding.self)
         var c = 0
         for decodableType in decodables {
             let decoded = try decoder.decode(decodableType, from: .sequenceOfSmallBeerAndDoubleEspresso)
@@ -150,7 +150,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testDecodable_whenNilDrinkableNotContained() throws {
-        let decodables = decodablesOfDrinkable(optionalsOnly: true, with: DrinkableSimpleCoding.self)
+        let decodables = decodablesOfDrinkable(optionalsOnly: true, with: DrinkableTypeCoding.self)
         var c = 0
         for decodableType in decodables {
             let decoded = try decoder.decode(decodableType, from: .null)
@@ -169,7 +169,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testDecodable_whenNilDrinkablesNotContained() throws {
-        let decodables = decodablesOfDrinkables(of: [any Drinkable].self, optionalsOnly: true, with: DrinkableSimpleCoding.self)
+        let decodables = decodablesOfDrinkables(of: [any Drinkable].self, optionalsOnly: true, with: DrinkableTypeCoding.self)
         var c = 0
         for decodableType in decodables {
             let decoded = try decoder.decode(decodableType, from: .null)
@@ -188,47 +188,47 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testDecodable_whenNotNilDrinkableInContainerOfNonOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfDrinkable<DrinkableSimpleCoding>.self, from: .glassOfWaterContained)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfDrinkable<DrinkableSimpleCoding>(.glassOfWater)))
+        let decoded = try decoder.decode(DecodablesOfDrinkable<DrinkableTypeCoding>.self, from: .glassOfWaterContained)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfDrinkable<DrinkableTypeCoding>(.glassOfWater)))
     }
 
     func testDecodable_whenNotNilDrinkableInContainerOfOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>.self, from: .glassOfWaterContained)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>(.glassOfWater)))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableTypeCoding>.self, from: .glassOfWaterContained)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableTypeCoding>(.glassOfWater)))
     }
 
     func testDecodable_whenNilDrinkableInContainerOfOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>.self, from: .emptyContainer)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>(nil)))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableTypeCoding>.self, from: .emptyContainer)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableTypeCoding>(nil)))
     }
 
     func testDecodable_whenNilDrinkableInContainerOfOptionalsEncodingNil() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>.self, from: .containerOfNils)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableSimpleCoding>(nil)))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkable<DrinkableTypeCoding>.self, from: .containerOfNils)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkable<DrinkableTypeCoding>(nil)))
     }
 
     func testDecodable_whenNotNilDrinkablesInContainerOfNonOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfDrinkables<[any Drinkable], DrinkableSimpleCoding>.self, from: .sequenceOfGlassOfWaterAndSmallBeerContained)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfDrinkables<[any Drinkable], DrinkableSimpleCoding>([.glassOfWater, .smallBeer])))
+        let decoded = try decoder.decode(DecodablesOfDrinkables<[any Drinkable], DrinkableTypeCoding>.self, from: .sequenceOfGlassOfWaterAndSmallBeerContained)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfDrinkables<[any Drinkable], DrinkableTypeCoding>([.glassOfWater, .smallBeer])))
     }
 
     func testDecodable_whenNotNilDrinkablesInContainerOfOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableSimpleCoding>.self, from: .sequenceOfGlassOfWaterAndSmallBeerContained)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableSimpleCoding>([.glassOfWater, .smallBeer])))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableTypeCoding>.self, from: .sequenceOfGlassOfWaterAndSmallBeerContained)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableTypeCoding>([.glassOfWater, .smallBeer])))
     }
 
     func testDecodable_whenNilDrinkablesInContainerOfOptionals() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCoding>.self, from: .emptyContainer)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCoding>(nil)))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCoding>.self, from: .emptyContainer)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCoding>(nil)))
     }
 
     func testDecodable_whenNilDrinkablesInContainerOfOptionalsEncodingNil() throws {
-        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCoding>.self, from: .containerOfNils)
-        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCoding>(nil)))
+        let decoded = try decoder.decode(DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCoding>.self, from: .containerOfNils)
+        XCTAssertEqual(String(reflecting: decoded), String(reflecting: DecodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCoding>(nil)))
     }
 
     func testEncodable_whenNotNilDrinkableNotContained() throws {
-        let encodables = encodablesOfDrinkable(value: .smallBeer, with: DrinkableSimpleCoding.self)
+        let encodables = encodablesOfDrinkable(value: .smallBeer, with: DrinkableTypeCoding.self)
         var c = 0
         for encodable in encodables {
             let data = try encoder.encode(encodable)
@@ -242,7 +242,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testEncodable_whenNotNilDrinkablesNotContained() throws {
-        let encodables = encodablesOfDrinkables(value: [.smallBeer, .doubleEspresso], with: DrinkableSimpleCoding.self)
+        let encodables = encodablesOfDrinkables(value: [.smallBeer, .doubleEspresso], with: DrinkableTypeCoding.self)
         var c = 0
         for encodable in encodables {
             let data = try encoder.encode(encodable)
@@ -256,7 +256,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testEncodable_whenNilDrinkableNotContained() throws {
-        let encodables = encodablesOfDrinkable(value: nil, with: DrinkableSimpleCoding.self)
+        let encodables = encodablesOfDrinkable(value: nil, with: DrinkableTypeCoding.self)
         var c = 0
         for encodable in encodables {
             let data = try encoder.encode(encodable)
@@ -270,7 +270,7 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testEncodable_whenNilDrinkablesNotContained() throws {
-        let encodables = encodablesOfDrinkables(value: ArraySlice<any Drinkable>?.none, with: DrinkableSimpleCoding.self)
+        let encodables = encodablesOfDrinkables(value: ArraySlice<any Drinkable>?.none, with: DrinkableTypeCoding.self)
         var c = 0
         for encodable in encodables {
             let data = try encoder.encode(encodable)
@@ -284,42 +284,42 @@ final class ConformableExistentialTests: XCTestCase {
     }
 
     func testEncodable_whenNotNilDrinkableInContainerOfNonOptionals() throws {
-        let data = try encoder.encode(EncodablesOfDrinkable<DrinkableSimpleCoding>(.glassOfWater))
+        let data = try encoder.encode(EncodablesOfDrinkable<DrinkableTypeCoding>(.glassOfWater))
         XCTAssertEqual(data, .glassOfWaterContained)
     }
 
     func testEncodable_whenNotNilDrinkableInContainerOfOptionals() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableSimpleCoding>(.glassOfWater))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableTypeCoding>(.glassOfWater))
         XCTAssertEqual(data, .glassOfWaterContained)
     }
 
     func testEncodable_whenNilDrinkableInContainerOfOptionals() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableSimpleCoding>(nil))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableTypeCoding>(nil))
         XCTAssertEqual(data, .emptyContainer)
     }
 
     func testEncodable_whenNilDrinkableInContainerOfOptionalsEncodingNil() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableSimpleCodingNilEncoding>(nil))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkable<DrinkableTypeCodingNilEncoding>(nil))
         XCTAssertEqual(data, .containerOfNils)
     }
 
     func testEncodable_whenNotNilDrinkablesInContainerOfNonOptionals() throws {
-        let data = try encoder.encode(EncodablesOfDrinkables<[any Drinkable], DrinkableSimpleCoding>([.glassOfWater, .smallBeer]))
+        let data = try encoder.encode(EncodablesOfDrinkables<[any Drinkable], DrinkableTypeCoding>([.glassOfWater, .smallBeer]))
         XCTAssertEqual(data, .sequenceOfGlassOfWaterAndSmallBeerContained)
     }
 
     func testEncodable_whenNotNilDrinkablesInContainerOfOptionals() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableSimpleCoding>([.glassOfWater, .smallBeer].prefix(.max)))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkables<ArraySlice<any Drinkable>, DrinkableTypeCoding>([.glassOfWater, .smallBeer].prefix(.max)))
         XCTAssertEqual(data, .sequenceOfGlassOfWaterAndSmallBeerContained)
     }
 
     func testEncodable_whenNilDrinkablesInContainerOfOptionals() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCoding>(nil))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCoding>(nil))
         XCTAssertEqual(data, .emptyContainer)
     }
 
     func testEncodable_whenNilDrinkablesInContainerOfOptionalsEncodingNil() throws {
-        let data = try encoder.encode(EncodablesOfOptionalDrinkables<[any Drinkable], DrinkableSimpleCodingNilEncoding>(nil))
+        let data = try encoder.encode(EncodablesOfOptionalDrinkables<[any Drinkable], DrinkableTypeCodingNilEncoding>(nil))
         XCTAssertEqual(data, .containerOfNils)
     }
 }
@@ -473,7 +473,7 @@ private extension Data {
     static let smallBeer: Data =
         """
         {
-          "__type" : "Beer",
+          "__type" : "beer",
           "milliliters" : 300
         }
         """.data(using: .utf8)!
@@ -482,51 +482,51 @@ private extension Data {
         """
         {
           "d1" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d2" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d3" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d4" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d5" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d6" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d7" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d8" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d9" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d10" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d11" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           },
           "d12" : {
-            "__type" : "Water",
+            "__type" : "water",
             "milliliters" : 250
           }
         }
@@ -536,11 +536,11 @@ private extension Data {
         """
         [
           {
-            "__type" : "Beer",
+            "__type" : "beer",
             "milliliters" : 300
           },
           {
-            "__type" : "Espresso",
+            "__type" : "espresso",
             "milliliters" : 50
           }
         ]
@@ -551,121 +551,121 @@ private extension Data {
         {
           "d1" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d2" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d3" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d4" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d5" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d6" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d7" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d8" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d9" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d10" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d11" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ],
           "d12" : [
             {
-              "__type" : "Water",
+              "__type" : "water",
               "milliliters" : 250
             },
             {
-              "__type" : "Beer",
+              "__type" : "beer",
               "milliliters" : 300
             }
           ]
