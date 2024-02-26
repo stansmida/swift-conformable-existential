@@ -23,7 +23,7 @@ Overcoming this limitation requires extensive boilerplate code. This package off
 that can be attached to your protocol to synthesize ready-to-use property wrappers over the existential
 type of the annotated protocol. These wrappers act as proxies for the respective conformances.
 ```swift
-import SwiftConformableExistentials
+import SwiftConformableExistential
 
 @HashableExistential
 protocol Drinkable: Hashable {}
