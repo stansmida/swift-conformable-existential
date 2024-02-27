@@ -427,7 +427,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -445,7 +445,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -466,7 +466,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -514,7 +514,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -841,7 +841,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -863,7 +863,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -888,7 +888,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {
@@ -953,7 +953,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {
@@ -1125,7 +1125,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -1146,7 +1146,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -1170,7 +1170,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -1226,7 +1226,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -1603,7 +1603,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -1628,7 +1628,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -1656,7 +1656,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {
@@ -1729,7 +1729,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {
@@ -2213,7 +2213,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -2238,7 +2238,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
             }
 
@@ -2270,7 +2270,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -2341,7 +2341,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
             }
@@ -2518,7 +2518,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -2547,7 +2547,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                 }
                 init(from decoder: Decoder) throws {
                     let type = try TypeCoding.decode(from: decoder)
-                    wrappedValue = try type.init(from: decoder)
+                    wrappedValue = try type.init(from: decoder) as any Drinkable
                 }
                 func encode(to encoder: Encoder) throws {
                     try wrappedValue.encode(to: encoder)
@@ -2583,7 +2583,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {
@@ -2671,7 +2671,7 @@ final class ConformableExistentialMacrosTests: XCTestCase {
                         wrappedValue = nil
                     } else {
                         let type = try TypeCoding.decode(from: decoder)
-                        wrappedValue = try type.init(from: decoder)
+                        wrappedValue = try type.init(from: decoder) as any Drinkable
                     }
                 }
                 func encode(to encoder: Encoder) throws {

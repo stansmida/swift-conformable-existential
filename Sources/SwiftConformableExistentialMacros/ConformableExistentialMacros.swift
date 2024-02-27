@@ -464,7 +464,7 @@ private struct ExpansionBuilder {
         } else {
             """
             let type = try \(raw: typeCodingGenericParameter).decode(from: decoder)
-            wrappedValue = try type.init(from: decoder)
+            wrappedValue = try type.init(from: decoder) as any \(raw: configuration.protocolName)
             """
         }
         if configuration.variant.contains(.optional) {
